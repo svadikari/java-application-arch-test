@@ -1,0 +1,4 @@
+evaluationDependsOn(':products')
+dependencies {
+    implementation project(path: ':products', configuration: 'default')
+}

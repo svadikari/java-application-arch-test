@@ -1,0 +1,5 @@
+rootProject.name = 'java-application-arch-test'
+
+include 'orders'
+include 'products'
+include 'arch-testing-automation'

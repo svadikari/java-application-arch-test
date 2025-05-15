@@ -1,0 +1,7 @@
+evaluationDependsOn(':orders')
+evaluationDependsOn(':products')
+dependencies {
+    testImplementation project(path: ':orders', configuration: 'default')
+    testImplementation project(path: ':products', configuration: 'default')
+    testImplementation 'com.tngtech.archunit:archunit-junit5:1.4.0'
+}

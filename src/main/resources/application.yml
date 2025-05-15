@@ -1,0 +1,21 @@
+server.port: 8080
+spring:
+  application:
+    name: archunit-demo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/orders-db
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+
