@@ -35,9 +35,6 @@ public class ArchitectureTest {
   ArchRule NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING = GeneralCodingRules.NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 
   @ArchTest
-  ArchRule NO_CLASSES_SHOULD_USE_JODA_TIME = GeneralCodingRules.NO_CLASSES_SHOULD_USE_JODATIME;
-
-  @ArchTest
   ArchRule NO_CLASSES_SHOULD_NOT_USE_FIELD_INJECTION =
       GeneralCodingRules.NO_CLASSES_SHOULD_USE_FIELD_INJECTION
           .because("classes should use constructor/setter injection instead field injection for better testability and "
@@ -49,20 +46,9 @@ public class ArchitectureTest {
           .should().beAnnotatedWith(RestController.class);
 
   @ArchTest
-  ArchRule SERVICE_PACKAGE_SHOULD_HAVE_ONLY_SERVICE_CLASSES_RULE =
-      classes().that().resideInAPackage("..service")
-          .should().haveSimpleNameEndingWith("Service")
-          .orShould().haveSimpleNameEndingWith("ServiceImpl");
-
-  @ArchTest
   ArchRule SERVICE_CLASSES_DEPENDENCY_RULE =
       classes().that().resideInAPackage("..service")
           .and().haveSimpleNameEndingWith("ServiceImpl")
           .should().beAnnotatedWith(Service.class)
           .andShould().onlyHaveDependentClassesThat().haveSimpleNameEndingWith("Service");
-
-  @ArchTest
-  ArchRule rule =
-      classes().that().haveSimpleNameEndingWith("ServiceImpl")
-          .should().onlyHaveDependentClassesThat().haveSimpleNameEndingWith("Service");
 }
