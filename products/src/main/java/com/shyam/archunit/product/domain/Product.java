@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -21,33 +22,33 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "products")
 @EntityListeners(AuditingEntityListener.class)
-public record Product(
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id,
+@Data
+public class Product{
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
 
-    @NotEmpty String name,
+    @NotEmpty String name;
 
-    @NotNull String description,
+    @NotNull String description;
 
-    @NotNull Double price,
+    @NotNull Double price;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
     @JsonIgnore
-    LocalDateTime createdDate,
+    LocalDateTime createdDate;
 
     @LastModifiedDate
     @Column(insertable = false)
     @JsonIgnore
-    LocalDateTime lastModifiedDate,
+    LocalDateTime lastModifiedDate;
 
     @CreatedBy
     @NotBlank
-    @Column(nullable = false, updatable = false) String createdBy,
+    @Column(nullable = false, updatable = false) String createdBy;
 
     @LastModifiedBy
     @Column(insertable = false)
     @JsonIgnore
-    String lastModifiedBy
-) {
+    String lastModifiedBy;
 
 }

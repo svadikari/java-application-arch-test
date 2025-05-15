@@ -5,4 +5,6 @@ import java.util.SequencedCollection;
 
 public interface ProductService {
   SequencedCollection<Product> getAllProducts();
+
+  SequencedCollection<Product> upsertProduct(Product product);
 }

@@ -1,0 +1,1 @@
+Field <com.shyam.archunit.product.service.ProductServiceImpl.productRepository> is annotated with @Autowired in (ProductServiceImpl.java:0)
